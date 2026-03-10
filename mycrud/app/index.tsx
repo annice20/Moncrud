@@ -8,11 +8,27 @@ import {
   SafeAreaView,
   KeyboardAvoidingView,
   Platform,
+  Alert,
 } from "react-native";
 import { Mail, Lock, Eye, EyeOff, ArrowRight } from "lucide-react-native";
 
 export default function Index() {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = async () => {
+    if (!email || !password) {
+      Alert.alert("Erreur", "Veuillez remplir tous les champs");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+    } catch (error) {}
+  };
 
   return (
     <SafeAreaView className="flex-1 bg-slate-50">
@@ -69,13 +85,19 @@ export default function Index() {
             </Text>
           </TouchableOpacity>
 
-          <TouchableOpacity className="bg-blue-600 rounded-2xl py-4 flex-row items-center justify-center shadow-md shadow-blue-300 mt-4">
+          <TouchableOpacity
+            onPress={() => router.replace("/")}
+            className="bg-blue-600 rounded-2xl py-4 flex-row items-center justify-center shadow-md shadow-blue-300 mt-4"
+          >
             <Text className="text-white font-bold text-lg mr-2">
               Se connecter
             </Text>
             <ArrowRight color="white" size={20} />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => router.replace('/register')} className="bg-blue-600 rounded-2xl py-4 flex-row items-center justify-center shadow-md shadow-blue-300 mt-4">
+          <TouchableOpacity
+            onPress={() => router.replace("/register")}
+            className="bg-blue-600 rounded-2xl py-4 flex-row items-center justify-center shadow-md shadow-blue-300 mt-4"
+          >
             <Text className="text-white font-bold text-lg mr-2">
               Créer un compte
             </Text>

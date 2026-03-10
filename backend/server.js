@@ -12,6 +12,6 @@ app.use(userRoutes);
 app.use(contenuRoutes);
 
 const PORT = 3000;
-app.listen(PORT, "0.0.0.0", () => {
+app.listen(PORT, () => {
   console.log(`Démarré sur http://localhost:${PORT}`);
 });
